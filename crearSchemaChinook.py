@@ -7,6 +7,9 @@ schema_script_sql = 'stagingChinookCreateSchema.sql'
 nombre_db = 'ChinookStagingGrupoX'
 
 try:
+
+    open('log_outputFile.txt', 'w').close()
+
     # Cadena de conexión con la instancia, utilizando driver de SQL Server, nombre del servidor, y método de autenticación (Windows)
     connection_string = f'DRIVER={{{driver}}};SERVER={nombre_servidor};Trusted_Connection=yes;'
 
@@ -16,6 +19,10 @@ try:
     
     print("Grupo Equis - Gabriel Chang y Ernesto Alaniz")
     print("*CONEXIÓN CON EL SERVIDOR EXITOSA*")
+
+    with open("log_outputFile.txt", "a") as f:
+        print("Grupo Equis - Gabriel Chang y Ernesto Alaniz\n", file=f)
+        print("*CONEXION CON EL SERVIDOR EXITOSA*\n", file=f)
     
     # se crea un objeto cursor (asociado a la instancia de la conexión) para poder ejecutar comandos SQL 
     cursor = connection.cursor()
@@ -29,6 +36,8 @@ try:
                    f"CREATE DATABASE {nombre_db};")
     
     print("*La base de datos fue creada exitosamente, o ya existía*")
+    with open("log_outputFile.txt", "a") as f:
+        print("*La base de datos fue creada exitosamente, o ya existia*\n", file=f)
     
     # Leemos el archivo del script SQL que tenemos almacenado el mismo proyecto, que crea
     # el esquema de la base de datos ChinookStagingGrupoX (staging db), para luego mandarlo a llamar
@@ -41,14 +50,21 @@ try:
     cursor.execute(createSchema_script)    
     
     print("*Script de creación de esquema de la base de datos ejecutado exitosamente*")
+    with open("log_outputFile.txt", "a") as f:
+        print("*Script de creacion de esquema de la base de datos ejecutado exitosamente*\n", file=f)
     createSchema_file.close()
     cursor.close()
 
 # manejo de excepciones en caso de algún error con la conexión, o ejecución de sentencias
 except Exception as ex:
-    print("Hubo un error durante la conexión o ejecución del script SQL. MENSAJE -->: {}".format(ex))
+    print("Hubo un error durante la conexion o ejecución del script SQL. MENSAJE -->: {}".format(ex))
+    with open("log_outputFile.txt", "a") as f:
+        print("Hubo un error durante la conexion o ejecucion del script SQL. MENSAJE -->: {}".format(ex), file=f)
 
 # cerrar la conexión
 finally:
     connection.close()
     print("*CONEXIÓN CERRADA*")
+    with open("log_outputFile.txt", "a") as f:
+        print("\n*CONEXION CERRADA*", file=f)
+    
