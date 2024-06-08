@@ -14,11 +14,11 @@ USE MusicSalesDB;
 GO
 
 -- Drop tables if they exist
-IF OBJECT_ID('FactMusicSale', 'U') IS NOT NULL DROP TABLE FactMusicSale;
-IF OBJECT_ID('DimCustomer', 'U') IS NOT NULL DROP TABLE DimCustomer;
-IF OBJECT_ID('DimEmployee', 'U') IS NOT NULL DROP TABLE DimEmployee;
-IF OBJECT_ID('DimTrack', 'U') IS NOT NULL DROP TABLE DimTrack;
-GO
+DROP TABLE IF EXISTS [FactMusicSale];
+DROP TABLE IF EXISTS [DimCustomer];
+DROP TABLE IF EXISTS [DimEmployee];
+DROP TABLE IF EXISTS [DimTrack];
+
 
 -- Create DimCustomer table
 CREATE TABLE DimCustomer (
@@ -73,9 +73,6 @@ CREATE TABLE FactMusicSale (
     Sale_Address NVARCHAR(255),
     Sale_City NVARCHAR(100),
     Sale_Country NVARCHAR(100),
-    Sale_PostalCode NVARCHAR(20),
-    FOREIGN KEY (Sale_CustomerId) REFERENCES DimCustomer(Id_customer),
-    FOREIGN KEY (Sale_EmployeeId) REFERENCES DimEmployee(Id_employee),
-    FOREIGN KEY (Sale_TrackId) REFERENCES DimTrack(Id_track)
+    Sale_PostalCode NVARCHAR(20),    
 );
-GO
+

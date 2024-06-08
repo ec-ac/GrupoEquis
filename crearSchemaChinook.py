@@ -3,8 +3,8 @@ import pyodbc
 
 nombre_servidor = 'localhost' 
 driver = 'ODBC Driver 17 for SQL Server'
-schema_script_sql = 'stagingChinookCreateSchema.sql'
-nombre_db = 'ChinookStagingGrupoX'
+schema_script_sql = 'landingChinookCreateSchema.sql'
+nombre_db = 'ChinookLandingGrupoX'
 grupo_str = 'Grupo Equis - Gabriel Chang y Ernesto Alaniz\n'
 con_success_str = "CONEXIÓN CON EL SERVIDOR EXITOSA\n"
 dbCreate_str = "La base de datos fue creada exitosamente, o ya existía\n"

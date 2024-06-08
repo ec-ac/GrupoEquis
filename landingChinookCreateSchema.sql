@@ -1,5 +1,5 @@
 -- GRUPO EQUIS: GABRIEL CHANG Y ERNESTO ALANIZ - UAM
-USE ChinookStagingGrupoX;
+USE ChinookLandingGrupoX;
 
 --Borrar las tablas si ya existen, una por una
 -- Son 11 tablas en total, del modelo/schema de Chinook original
