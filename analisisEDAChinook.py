@@ -4,7 +4,7 @@ import pyodbc
 try:
     # Establecer la conexión a la base de datos Chinook
     connection = pyodbc.connect(
-        'DRIVER={SQL Server};SERVER=.;DATABASE=Chinook;Trusted_Connection=yes'
+        'DRIVER={SQL Server};SERVER=.;DATABASE=ChinookProd;Trusted_Connection=yes'
     )
     
     print("Grupo Equis - Gabriel Chang y Ernesto Alaniz")
@@ -16,8 +16,7 @@ try:
     cursor.execute("SELECT DB_NAME() AS DatabaseName, create_date AS CreationDate FROM sys.databases WHERE name=DB_NAME();")
     db_info = cursor.fetchone()
     print("Nombre de la base de datos: {}".format(db_info[0]))
-    print("Fecha de creación de la base de datos: {}".format(db_info[1]))
-    print()
+    print("Fecha de creación de la base de datos: {}".format(db_info[1]), '\n')
     
     # Obtener la cantidad de tablas y sus nombres
     cursor.execute("""
@@ -87,4 +86,4 @@ except Exception as ex:
 finally:
     connection.close()
     print()
-    print("***CONEXIÓN CERRADA***")
+    print("**CONEXIÓN CERRADA**")

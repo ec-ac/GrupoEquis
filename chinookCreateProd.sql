@@ -1,5 +1,5 @@
-create database Chinook;
-use Chinook
+create database ChinookProd;
+use ChinookProd
 
 /*******************************************************************************
    Drop Tables

@@ -1,10 +1,15 @@
 #ALMACEN DE DATOS - GRUPO EQUIS - GABRIEL CHANG Y ERNESTO ALANIZ - UAM
 import pyodbc
 
-nombre_servidor = '.' 
+nombre_servidor = 'localhost' 
 driver = 'ODBC Driver 17 for SQL Server'
 schema_script_sql = 'stagingChinookCreateSchema.sql'
 nombre_db = 'ChinookStagingGrupoX'
+grupo_str = 'Grupo Equis - Gabriel Chang y Ernesto Alaniz\n'
+con_success_str = "CONEXIÓN CON EL SERVIDOR EXITOSA\n"
+dbCreate_str = "La base de datos fue creada exitosamente, o ya existía\n"
+scriptSuccess_str = "Script de creación de esquema de la base de datos ejecutado exitosamente\n"
+close_con_str = "CONEXIÓN CERRADA\n"
 
 try:
 
@@ -17,27 +22,29 @@ try:
     # mediante método "connect" de pyodbc, pasando como argumento la cadena de conexión
     connection = pyodbc.connect(connection_string, autocommit=True)
     
-    print("Grupo Equis - Gabriel Chang y Ernesto Alaniz")
-    print("*CONEXIÓN CON EL SERVIDOR EXITOSA*")
+    print(grupo_str)
+    print(con_success_str)
 
+    
     with open("log_outputFile.txt", "a") as f:
-        print("Grupo Equis - Gabriel Chang y Ernesto Alaniz\n", file=f)
-        print("*CONEXION CON EL SERVIDOR EXITOSA*\n", file=f)
+        print(grupo_str, file=f)
+        print(con_success_str, file=f)
     
     # se crea un objeto cursor (asociado a la instancia de la conexión) para poder ejecutar comandos SQL 
     cursor = connection.cursor()
 
     # se crea la base de datos staging si no existe en el servidor
     # dicha sentencia se realiza aqui ya que pyodbc no permitió la creación/drop de bases de datos
-    # dentro de un mismo script, a pesar de tener autocommit en True, y separar las transacciones-
-    # (dentro de los errores, salía que no podía create/drop database en transacciones con-
-    # múltiples instrucciones)
+    # dentro de transacciones con multiples instrucciones, y pyodbc tampoco reconoce la sentencia
+    # GO para separar instrucciones en un mismo script SQL
+    # posteriormente se llamara un archivo sql que solo contiene la creación del esquema como tal, asumiendo
+    # que ya la tiene
     cursor.execute(f"IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = '{nombre_db}') "
                    f"CREATE DATABASE {nombre_db};")
     
-    print("*La base de datos fue creada exitosamente, o ya existía*")
+    print(dbCreate_str)
     with open("log_outputFile.txt", "a") as f:
-        print("*La base de datos fue creada exitosamente, o ya existia*\n", file=f)
+        print(dbCreate_str, file=f)
     
     # Leemos el archivo del script SQL que tenemos almacenado el mismo proyecto, que crea
     # el esquema de la base de datos ChinookStagingGrupoX (staging db), para luego mandarlo a llamar
@@ -49,22 +56,24 @@ try:
     # del método "read" del objeto file "createSchema_file" que lee del archivo sql en el proyecto
     cursor.execute(createSchema_script)    
     
-    print("*Script de creación de esquema de la base de datos ejecutado exitosamente*")
+    print(scriptSuccess_str)
     with open("log_outputFile.txt", "a") as f:
-        print("*Script de creacion de esquema de la base de datos ejecutado exitosamente*\n", file=f)
+        print(scriptSuccess_str, file=f)
     createSchema_file.close()
     cursor.close()
 
 # manejo de excepciones en caso de algún error con la conexión, o ejecución de sentencias
 except Exception as ex:
-    print("Hubo un error durante la conexion o ejecución del script SQL. MENSAJE -->: {}".format(ex))
+    exMsg_str = "Hubo un error durante la conexion o ejecución del script SQL. MENSAJE -->: {}".format(ex)
+
+    print(exMsg_str)
+
     with open("log_outputFile.txt", "a") as f:
-        print("Hubo un error durante la conexion o ejecucion del script SQL. MENSAJE -->: {}".format(ex), file=f)
+        print(exMsg_str, file=f)
 
 # cerrar la conexión
 finally:
     connection.close()
-    print("*CONEXIÓN CERRADA*")
+    print(close_con_str)
     with open("log_outputFile.txt", "a") as f:
-        print("\n*CONEXION CERRADA*", file=f)
-    
+        print(close_con_str, file=f)
