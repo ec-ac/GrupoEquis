@@ -1,5 +1,12 @@
+begin
 create database ChinookProd;
-use ChinookProd
+end
+go
+
+begin
+use ChinookProd;
+end
+go
 
 /*******************************************************************************
    Drop Tables

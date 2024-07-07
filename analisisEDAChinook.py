@@ -1,4 +1,5 @@
 #Grupo Equis - Gabriel Chang y Ernesto Alaniz - UAM
+#graficos de eda
 import pyodbc
 
 try:

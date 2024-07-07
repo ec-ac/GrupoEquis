@@ -3,123 +3,93 @@ USE ChinookLandingGrupoX;
 
 --Borrar las tablas si ya existen, una por una
 -- Son 11 tablas en total, del modelo/schema de Chinook original
-DROP TABLE IF EXISTS [Album];
-DROP TABLE IF EXISTS [Artist];
-DROP TABLE IF EXISTS [Genre];
-DROP TABLE IF EXISTS [Invoice];
-DROP TABLE IF EXISTS [InvoiceLine];
-DROP TABLE IF EXISTS [MediaType];
-DROP TABLE IF EXISTS [Playlist];
-DROP TABLE IF EXISTS [PlaylistTrack];
-DROP TABLE IF EXISTS [Track];
-DROP TABLE IF EXISTS [Customer];
-DROP TABLE IF EXISTS [Employee];
 
---Crear las tablas (excluyendo relaciones, llaves foráneas, índices, etc. POR AHORA)
-CREATE TABLE [Artist]
-(
-    [ArtistId] INTEGER NOT NULL,
-    [Name] NVARCHAR(120)
-);
+--ALBUM
+-- equivalente a "drop table if exists"
+IF OBJECT_ID('album', 'U') IS NOT NULL
+	DROP TABLE album
 
-CREATE TABLE [Album]
-(
-    [AlbumId] INTEGER NOT NULL,
-    [Title] NVARCHAR(160) NOT NULL,
-    [ArtistId] INTEGER NOT NULL
-);
+-- aqui, aun no existe la tabla "album" en la BD donde van a caer los datos
+Select * 
+into Album 					-- crea una tabla nueva (en staging) basada en el result set de la consulta
+from ChinookProd.dbo.Album	--tabla en BD origen (producción)
 
-CREATE TABLE [Employee]
-(
-    [EmployeeId] INTEGER NOT NULL,
-    [LastName] NVARCHAR(20) NOT NULL,
-    [FirstName] NVARCHAR(20) NOT NULL,
-    [Title] NVARCHAR(30),
-    [ReportsTo] INTEGER,
-    [BirthDate] DATETIME,
-    [HireDate] DATETIME,
-    [Address] NVARCHAR(70),
-    [City] NVARCHAR(40),
-    [State] NVARCHAR(40),
-    [Country] NVARCHAR(40),
-    [PostalCode] NVARCHAR(10),
-    [Phone] NVARCHAR(24),
-    [Fax] NVARCHAR(24),
-    [Email] NVARCHAR(60)
-);
+--ARTIST
+IF OBJECT_ID('artist', 'U') IS NOT NULL
+	drop table artist
 
-CREATE TABLE [Customer]
-(
-    [CustomerId] INTEGER NOT NULL,
-    [FirstName] NVARCHAR(40) NOT NULL,
-    [LastName] NVARCHAR(20) NOT NULL,
-    [Company] NVARCHAR(80),
-    [Address] NVARCHAR(70),
-    [City] NVARCHAR(40),
-    [State] NVARCHAR(40),
-    [Country] NVARCHAR(40),
-    [PostalCode] NVARCHAR(10),
-    [Phone] NVARCHAR(24),
-    [Fax] NVARCHAR(24),
-    [Email] NVARCHAR(60) NOT NULL,
-    [SupportRepId] INTEGER
-);
+Select * 
+into Artist
+from ChinookProd.dbo.Artist
 
-CREATE TABLE [Genre]
-(
-    [GenreId] INTEGER NOT NULL,
-    [Name] NVARCHAR(120)
-);
+--CUSTOMER
+IF OBJECT_ID('customer', 'U') IS NOT NULL
+	drop table customer
 
-CREATE TABLE [Invoice]
-(
-    [InvoiceId] INTEGER NOT NULL,
-    [CustomerId] INTEGER NOT NULL,
-    [InvoiceDate] DATETIME NOT NULL,
-    [BillingAddress] NVARCHAR(70),
-    [BillingCity] NVARCHAR(40),
-    [BillingState] NVARCHAR(40),
-    [BillingCountry] NVARCHAR(40),
-    [BillingPostalCode] NVARCHAR(10),
-    [Total] NUMERIC(10,2) NOT NULL
-);
+Select * 
+into Customer
+from ChinookProd.dbo.Customer
 
-CREATE TABLE [MediaType]
-(
-    [MediaTypeId] INTEGER NOT NULL,
-    [Name] NVARCHAR(120)
-);
+--EMPLOYEE
+IF OBJECT_ID('employee', 'U') IS NOT NULL
+	drop table employee
 
-CREATE TABLE [Playlist]
-(
-    [PlaylistId] INTEGER NOT NULL,
-    [Name] NVARCHAR(120)
-);
+Select * 
+into Employee
+from ChinookProd.dbo.Employee
 
-CREATE TABLE [Track]
-(
-    [TrackId] INTEGER NOT NULL,
-    [Name] NVARCHAR(200) NOT NULL,
-    [AlbumId] INTEGER,
-    [MediaTypeId] INTEGER NOT NULL,
-    [GenreId] INTEGER,
-    [Composer] NVARCHAR(220),
-    [Milliseconds] INTEGER NOT NULL,
-    [Bytes] INTEGER,
-    [UnitPrice] NUMERIC(10,2) NOT NULL
-);
+--GENRE
+IF OBJECT_ID('genre', 'U') IS NOT NULL
+	drop table genre
 
-CREATE TABLE [PlaylistTrack]
-(
-    [PlaylistId] INTEGER NOT NULL,
-    [TrackId] INTEGER NOT NULL
-);
+Select * 
+into Genre
+from ChinookProd.dbo.Genre
 
-CREATE TABLE [InvoiceLine]
-(
-    [InvoiceLineId] INTEGER NOT NULL,
-    [InvoiceId] INTEGER NOT NULL,
-    [TrackId] INTEGER NOT NULL,
-    [UnitPrice] NUMERIC(10,2) NOT NULL,
-    [Quantity] INTEGER NOT NULL
-);
+--INVOICE
+IF OBJECT_ID('invoice', 'U') IS NOT NULL
+	drop table invoice
+
+Select * 
+into Invoice
+from ChinookProd.dbo.Invoice
+
+--INVOICELINE
+IF OBJECT_ID('invoiceline', 'U') IS NOT NULL
+	drop table invoiceLine
+
+Select * 
+into InvoiceLine
+from ChinookProd.dbo.InvoiceLine
+
+--MEDIATYPE
+IF OBJECT_ID('MediaType', 'U') IS NOT NULL
+	drop table MediaType
+
+Select * 
+into MediaType
+from ChinookProd.dbo.MediaType
+
+--Playlist
+IF OBJECT_ID('Playlist', 'U') IS NOT NULL
+	drop table Playlist
+
+Select * 
+into Playlist
+from ChinookProd.dbo.Playlist
+
+--Track
+IF OBJECT_ID('Track', 'U') IS NOT NULL
+	drop table Track
+
+Select * 
+into Track
+from ChinookProd.dbo.Track
+
+--PlaylistTrack
+IF OBJECT_ID('PlaylistTrack', 'U') IS NOT NULL
+	drop table PlaylistTrack
+
+Select * 
+into PlaylistTrack
+from ChinookProd.dbo.PlaylistTrack

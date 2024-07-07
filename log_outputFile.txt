@@ -1,10 +1,18 @@
 Grupo Equis - Gabriel Chang y Ernesto Alaniz
 
-CONEXIÓN CON EL SERVIDOR EXITOSA
+CONEXION CON EL SERVIDOR EXITOSA
 
-La base de datos fue creada exitosamente, o ya existía
+La base de datos fue creada exitosamente, o ya existia
 
-Script de creación de esquema de la base de datos ejecutado exitosamente
+Script de creacion de esquema de la base de datos landing, y populates, ejecutado exitosamente
 
-CONEXIÓN CERRADA
+Vista DimCustomer creada exitosamente
+
+Vista DimEmployee creada exitosamente
+
+Vista DimTrack creada exitosamente
+
+Vista FactMusicSale creada exitosamente
+
+CONEXION CERRADA
 
