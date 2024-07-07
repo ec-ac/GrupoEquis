@@ -1,32 +1,32 @@
 <h2><strong>Explicación de Archivos:</strong></h2>
 
-<a href="url">analisisEDAChinook.py</a> --> código python del análisis exploratorio de la BD Chinook
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/analisisEDAChinook.py">analisisEDAChinook.py</a> --> código python del análisis exploratorio de la BD Chinook
 
-<a href="url">crearSchemaChinook.py</a> --> código python principal ETL
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/crearSchemaChinook.py">crearSchemaChinook.py</a> --> código python principal ETL
 
-<a href="url">chinookCreateProd.sql</a> --> sql script para crear el esquema de la BD Chinook de producción
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/chinookCreateProd.sql">chinookCreateProd.sql</a> --> sql script para crear el esquema de la BD Chinook de producción
 
-<a href="url">landingChinookCreateSchema.sql</a> --> sql script para crear landing a partir de prod
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/landingChinookCreateSchema.sql">landingChinookCreateSchema.sql</a> --> sql script para crear landing a partir de prod
 
-<a href="url">Populate_ChinookProd.sql</a> --> insert masivo de datos de tablas prod
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/Populate_ChinookProd.sql">Populate_ChinookProd.sql</a> --> insert masivo de datos de tablas prod
 
-<a href="url">CrearTodasLasVistas.sql</a> --> sql script auxiliar de vistas modelo dimensional (no ejecutado en código python etl)
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/CrearTodasLasVistas.sql">CrearTodasLasVistas.sql</a> --> sql script auxiliar de vistas modelo dimensional (no ejecutado en código python etl)
 
-<a href="url">DimCustomer.sql</a> --> sql script para crear vista de DimCustomer
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/DimCustomer.sql">DimCustomer.sql</a> --> sql script para crear vista de DimCustomer
 
-<a href="url">DimEmployee.sql</a> --> sql script para crear vista de DimEmployee
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/DimEmployee.sql">DimEmployee.sql</a> --> sql script para crear vista de DimEmployee
 
-<a href="url">DimTrack.sql</a> --> sql script para crear vista de DimTrack
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/DimTrack.sql">DimTrack.sql</a> --> sql script para crear vista de DimTrack
 
-<a href="url">FactMusicSale-sql</a> --> sql script para crear vista de Fact Table
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/FactMusicSale.sql">FactMusicSale-sql</a> --> sql script para crear vista de Fact Table
 
-<a href="url">log_outputFile</a> --> txt file en donde se loggean mensajes según ejecuciones de comandos
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/log_outputFile.txt">log_outputFile</a> --> txt file en donde se loggean mensajes según ejecuciones de comandos
 
-<a href="url">Grupo Equis - Foto Modeo Dimensional</a> --> sketch físico de diseño de modelo dimensional
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/Grupo%20Equis%20-%20Foto%20Modelo%20Dimensional.jpeg">Grupo Equis - Foto Modelo Dimensional</a> --> sketch físico de diseño de modelo dimensional
 
-<a href="url">ChinookLandingGrupoX.bak</a> --> DB backup file de Landing (con tablas, vistas, y datos)
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/ChinookLandingGrupoX.bak">ChinookLandingGrupoX.bak</a> --> DB backup file de Landing (con tablas, vistas, y datos)
 
-<a href="url">ChinookProd.bak</a> --> DB backupfile de Prod (con tablas y datos)
+<a href="https://github.com/ec-ac/GrupoEquis/blob/main/ChinookProd.bak">ChinookProd.bak</a> --> DB backupfile de Prod (con tablas y datos)
 
 <h2><strong>Imágnes de Result Sets de datos relevantes del proceso de negocio:</strong></h2>
 
