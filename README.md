@@ -1,32 +1,32 @@
 <h2><strong>Explicación de Archivos:</strong></h2>
 
-analisisEDAChinook.py --> código python del análisis exploratorio de la BD Chinook
+<a href="url">analisisEDAChinook.py</a> --> código python del análisis exploratorio de la BD Chinook
 
-creacSchemaChinook.py --> código python principal ETL
+<a href="url">crearSchemaChinook.py</a> --> código python principal ETL
 
-chinookCreateProd.sql --> sql script para crear el esquema de la BD Chinook
+<a href="url">chinookCreateProd.sql</a> --> sql script para crear el esquema de la BD Chinook de producción
 
-landingChinookCreateSchema.sql --> sql script para crear landing a partir de prod
+<a href="url">landingChinookCreateSchema.sql</a> --> sql script para crear landing a partir de prod
 
-Populate_ChinookProd.sql --> insert masivo de datos de tablas prod
+<a href="url">Populate_ChinookProd.sql</a> --> insert masivo de datos de tablas prod
 
-CrearTodasLasVistas.sql --> sql script auxiliar de vistas modelo dimensional (no ejecutado en código python etl)
+<a href="url">CrearTodasLasVistas.sql</a> --> sql script auxiliar de vistas modelo dimensional (no ejecutado en código python etl)
 
-DimCustomer.sql --> sql script para crear vista de DimCustomer
+<a href="url">DimCustomer.sql</a> --> sql script para crear vista de DimCustomer
 
-DimEmployee.sql --> sql script para crear vista de DimEmployee
+<a href="url">DimEmployee.sql</a> --> sql script para crear vista de DimEmployee
 
-DimTrack.sql --> sql script para crear vista de DimTrack
+<a href="url">DimTrack.sql</a> --> sql script para crear vista de DimTrack
 
-FactMusicSale-sql --> sql script para crear vista de Fact Table
+<a href="url">FactMusicSale-sql</a> --> sql script para crear vista de Fact Table
 
-log_outputFile --> txt file en donde se loggean mensajes según ejecuciones de comandos
+<a href="url">log_outputFile</a> --> txt file en donde se loggean mensajes según ejecuciones de comandos
 
-Grupo Equis - Foto Modeo Dimensional --> sketch físico de diseño de modelo dimensional
+<a href="url">Grupo Equis - Foto Modeo Dimensional</a> --> sketch físico de diseño de modelo dimensional
 
-ChinookLandingGrupoX.bak --> DB backup file de Landing (con tablas, vistas, y datos)
+<a href="url">ChinookLandingGrupoX.bak</a> --> DB backup file de Landing (con tablas, vistas, y datos)
 
-ChinookProd.bak --> DB backupfile de Prod (con tablas y datos)
+<a href="url">ChinookProd.bak</a> --> DB backupfile de Prod (con tablas y datos)
 
 <h2><strong>Imágnes de Result Sets de datos relevantes del proceso de negocio:</strong></h2>
 
