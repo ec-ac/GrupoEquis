@@ -27,3 +27,9 @@ Grupo Equis - Foto Modeo Dimensional --> sketch físico de diseño de modelo dim
 ChinookLandingGrupoX.bak --> DB backup file de Landing (con tablas, vistas, y datos)
 
 ChinookProd.bak --> DB backupfile de Prod (con tablas y datos)
+
+<h2><strong>Imágnes de Result Sets de datos relevantes del proceso de negocio:</strong></h2>
+
+![64d1c05c-fecb-42c4-bf68-13cce150515e](https://github.com/ec-ac/GrupoEquis/assets/111550683/a020a1cb-c176-4a73-a139-287a02186808)
+![10c3a27b-da99-4ef1-b7b8-7bd403dd7781](https://github.com/ec-ac/GrupoEquis/assets/111550683/99fe2038-b195-4bb2-b9d5-1d0e56f05f19)
+
